@@ -1,5 +1,7 @@
 # Claude Code Telegram Bot 🤖
 
+> 🍴 **This is a fork** of [RichardAtCT/claude-code-telegram](https://github.com/RichardAtCT/claude-code-telegram). All credits to the original author. This fork adds Docker support for easier deployment.
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 
@@ -505,9 +507,16 @@ If you find this project useful, please consider giving it a star! ⭐
 
 ## 🙏 Acknowledgments
 
+- **[RichardAtCT](https://github.com/RichardAtCT)** - Original creator of this amazing project
 - [Claude](https://claude.ai) by Anthropic for the amazing AI capabilities
 - [python-telegram-bot](https://github.com/python-telegram-bot/python-telegram-bot) for the excellent Telegram integration
 - All contributors who help make this project better
+
+### Fork Changes
+- Added Docker support with `Dockerfile` and `docker-compose.yml` for easier deployment
+- Added `.env.example` template for configuration management
+- Added `.dockerignore` for optimized Docker builds
+- Original project: [RichardAtCT/claude-code-telegram](https://github.com/RichardAtCT/claude-code-telegram)
 
 ---
 
