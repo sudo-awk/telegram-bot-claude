@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  bot:
+    build: .
+    container_name: claude-telegram-bot
+    restart: unless-stopped
+    environment:
+      # Required - Copy these from your .env file
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+      - TELEGRAM_BOT_USERNAME=${TELEGRAM_BOT_USERNAME}
+      - APPROVED_DIRECTORY=${APPROVED_DIRECTORY}
+      - ALLOWED_USER_IDS=${ALLOWED_USER_IDS}
+
+      # Optional
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+      - DATABASE_PATH=${DATABASE_PATH:-/data/bot.db}
+
+    volumes:
+      # Mount the approved directory so the bot can access project files
+      - ${APPROVED_DIRECTORY}:${APPROVED_DIRECTORY}:ro
+
+      # Mount data directory for persistent storage (sessions, database)
+      - bot-data:/data
+
+    # Optional: Uncomment to see logs
+    # logging:
+    #   driver: "json-file"
+    #   options:
+    #     max-size: "10m"
+    #     max-file: "3"
+
+volumes:
+  bot-data:
+    driver: local
